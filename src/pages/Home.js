@@ -1,9 +1,46 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  CartesianGrid,
+  Tooltip as ChartTooltip,
+} from "recharts";
+
+// Sample data for the random chart
+const generateRandomData = () => {
+  const data = [];
+  for (let i = 0; i < 10; i++) {
+    data.push({
+      date: `Day ${i + 1}`,
+      value: Math.floor(Math.random() * 100) + 1,
+    });
+  }
+  return data;
+};
 
 const Home = () => {
   const LinechartChart = () => {
-    return <div>Chart will be here</div>;
+    const data = generateRandomData();
+    return (
+      <LineChart
+        width={800}
+        height={400}
+        data={data}
+        margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="date" />
+        <ChartTooltip />
+        <Line
+          type="monotone"
+          dataKey="value"
+          stroke="#8884d8"
+          activeDot={{ r: 8 }}
+        />
+      </LineChart>
+    );
   };
 
   return (
@@ -41,7 +78,7 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="Key-Features w-full py-12 md:py-24 lg:py-32">
           <div className="container space-y-12 px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -86,7 +123,7 @@ const Home = () => {
             </div>
             <div className="flex justify-center flex-col sm:flex-row items-start gap-4">
               <Link
-                to="#"
+                to="/table"
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                 prefetch={false}
               >
@@ -115,12 +152,30 @@ const Home = () => {
             </div>
             <div className="divide-y rounded-lg border">
               <div className="grid w-full grid-cols-3 items-stretch justify-center divide-x md:grid-cols-6">
-                <CryptoLogo altText="Bitcoin" />
-                <CryptoLogo altText="Ethereum" />
-                <CryptoLogo altText="Litecoin" />
-                <CryptoLogo altText="Ripple" />
-                <CryptoLogo altText="Cardano" />
-                <CryptoLogo altText="Polkadot" />
+                <CryptoLogo
+                  altText="Bitcoin"
+                  imageUrl="https://cryptologos.cc/logos/bitcoin-btc-logo.png"
+                />
+                <CryptoLogo
+                  altText="Ethereum"
+                  imageUrl="https://cryptologos.cc/logos/ethereum-eth-logo.png"
+                />
+                <CryptoLogo
+                  altText="Litecoin"
+                  imageUrl="https://cryptologos.cc/logos/litecoin-ltc-logo.png"
+                />
+                <CryptoLogo
+                  altText="Ripple"
+                  imageUrl="https://cdn4.vectorstock.com/i/1000x1000/45/73/golden-ripple-blockchain-coin-symbol-vector-19194573.jpg"
+                />
+                <CryptoLogo
+                  altText="Cardano"
+                  imageUrl="https://cryptologos.cc/logos/cardano-ada-logo.png"
+                />
+                <CryptoLogo
+                  altText="Polkadot"
+                  imageUrl="https://img.freepik.com/premium-vector/polkadot-dot-coin-gold-white-background-cryptocurrency-blockchain-digital-currency_674449-40.jpg?w=826"
+                />
               </div>
             </div>
           </div>
@@ -142,8 +197,8 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <div className="mx-auto w-full max-w-4xl">
-              <LinechartChart className="aspect-[16/9]" />
+            <div className="mx-auto w-full max-w-4xl space-y-12">
+              <LinechartChart />
             </div>
           </div>
         </section>
@@ -228,26 +283,17 @@ const Home = () => {
   );
 };
 
+const Feature = ({ title, description }) => (
+  <div className="relative flex flex-col space-y-4 rounded-xl border border-muted bg-background p-6 text-center shadow-md">
+    <h3 className="text-lg font-semibold">{title}</h3>
+    <p className="text-muted-foreground">{description}</p>
+  </div>
+);
 
-const Feature = ({ title, description }) => {
-  return (
-    <div className="space-y-4">
-      <h3 className="text-lg font-medium">{title}</h3>
-      <p className="text-muted-foreground">{description}</p>
-    </div>
-  );
-};
-
-const CryptoLogo = ({ altText }) => {
-  return (
-    <div className="flex items-center justify-center p-4">
-      <img
-        src="/placeholder-logo.svg"
-        alt={altText}
-        className="max-h-[40px] sm:max-h-[50px] md:max-h-[60px]"
-      />
-    </div>
-  );
-};
+const CryptoLogo = ({ altText, imageUrl }) => (
+  <div className="flex items-center justify-center p-4">
+    <img src={imageUrl} alt={altText} className="h-16 w-16 rounded-full" />
+  </div>
+);
 
 export default Home;

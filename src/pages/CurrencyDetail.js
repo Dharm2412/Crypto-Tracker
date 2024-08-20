@@ -16,7 +16,7 @@ function CurrencyDetail() {
   const [historicalData, setHistoricalData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [timeFrame, setTimeFrame] = useState(30); 
+  const [timeFrame, setTimeFrame] = useState(30);
 
   useEffect(() => {
     const fetchCoinData = async () => {
@@ -56,11 +56,18 @@ function CurrencyDetail() {
       <section className="w-100 pt-4 pt-md-5 pt-lg-5">
         <div className="container py-5">
           <div className="row gx-4">
-            <div className="col-md-6">
-              <h1 className="display-5 fw-bold">
-                {coin.name} ({coin.symbol.toUpperCase()})
-              </h1>
-              <p className="lead">{coin.description.en.split(".")[0]}.</p>
+            <div className="col-md-6 d-flex align-items-center">
+              <img
+                src={coin.image.large}
+                alt={coin.name}
+                style={{ width: "50px", height: "50px", marginRight: "15px" }}
+              />
+              <div>
+                <h1 className="display-5 fw-bold">
+                  {coin.name} ({coin.symbol.toUpperCase()})
+                </h1>
+                <p className="lead">{coin.description.en.split(".")[0]}.</p>
+              </div>
             </div>
             <div className="col-md-6 d-flex flex-column align-items-start">
               <div className="d-inline-flex align-items-center gap-2 bg-primary text-white px-3 py-1 rounded">

@@ -35,7 +35,7 @@ export default function Navbar() {
             Pricing
           </Link>
           <Link
-            to="#"
+            to="/contect"
             className="text-sm font-medium hover:underline underline-offset-4"
             prefetch={false}
           >
