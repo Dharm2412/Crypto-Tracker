@@ -148,184 +148,86 @@ const Home = () => {
           </div>
         </section>
       </main>
-      <footer className="bg-muted p-6 md:py-12 w-full">
-        <div className="container max-w-7xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-          <div className="space-y-3">
-            <h4 className="text-lg font-medium">Crypto Tracker</h4>
-            <ul className="space-y-3 text-muted-foreground">
-              <li>
-                <Link
-                  to="#"
-                  className="hover:underline underline-offset-4"
-                  prefetch={false}
-                >
-                  Features
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#"
-                  className="hover:underline underline-offset-4"
-                  prefetch={false}
-                >
-                  Supported Coins
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#"
-                  className="hover:underline underline-offset-4"
-                  prefetch={false}
-                >
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#"
-                  className="hover:underline underline-offset-4"
-                  prefetch={false}
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
+      <footer className="bg-gray-800 text-white p-6 md:py-12">
+        <div className="container mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 text-sm">
+          <div>
+            <h3 className="font-semibold">Company</h3>
+            <a href="#" className="block mt-2 hover:underline">
+              About Us
+            </a>
+            <a href="#" className="block mt-2 hover:underline">
+              Our Team
+            </a>
+            <a href="#" className="block mt-2 hover:underline">
+              Careers
+            </a>
+            <a href="#" className="block mt-2 hover:underline">
+              News
+            </a>
           </div>
-          <div className="space-y-3">
-            <h4 className="text-lg font-medium">Resources</h4>
-            <ul className="space-y-3 text-muted-foreground">
-              <li>
-                <Link
-                  to="#"
-                  className="hover:underline underline-offset-4"
-                  prefetch={false}
-                >
-                  API Docs
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#"
-                  className="hover:underline underline-offset-4"
-                  prefetch={false}
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#"
-                  className="hover:underline underline-offset-4"
-                  prefetch={false}
-                >
-                  Community Forum
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#"
-                  className="hover:underline underline-offset-4"
-                  prefetch={false}
-                >
-                  Support
-                </Link>
-              </li>
-            </ul>
+          <div>
+            <h3 className="font-semibold">Products</h3>
+            <a href="#" className="block mt-2 hover:underline">
+              Cryptocurrency Listing
+            </a>
+            <a href="#" className="block mt-2 hover:underline">
+              Pricing Data
+            </a>
+            <a href="#" className="block mt-2 hover:underline">
+              Market Analysis
+            </a>
+            <a href="#" className="block mt-2 hover:underline">
+              API Access
+            </a>
           </div>
-          <div className="space-y-3">
-            <h4 className="text-lg font-medium">Company</h4>
-            <ul className="space-y-3 text-muted-foreground">
-              <li>
-                <Link
-                  to="#"
-                  className="hover:underline underline-offset-4"
-                  prefetch={false}
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#"
-                  className="hover:underline underline-offset-4"
-                  prefetch={false}
-                >
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#"
-                  className="hover:underline underline-offset-4"
-                  prefetch={false}
-                >
-                  Press
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#"
-                  className="hover:underline underline-offset-4"
-                  prefetch={false}
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
+          <div>
+            <h3 className="font-semibold">Resources</h3>
+            <a href="#" className="block mt-2 hover:underline">
+              Blog
+            </a>
+            <a href="#" className="block mt-2 hover:underline">
+              Documentation
+            </a>
+            <a href="#" className="block mt-2 hover:underline">
+              Support
+            </a>
+            <a href="#" className="block mt-2 hover:underline">
+              FAQs
+            </a>
           </div>
-          <div className="space-y-3">
-            <h4 className="text-lg font-medium">Social</h4>
-            <ul className="space-y-3 text-muted-foreground">
-              <li>
-                <Link
-                  to="#"
-                  className="hover:underline underline-offset-4"
-                  prefetch={false}
-                >
-                  Twitter
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#"
-                  className="hover:underline underline-offset-4"
-                  prefetch={false}
-                >
-                  LinkedIn
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#"
-                  className="hover:underline underline-offset-4"
-                  prefetch={false}
-                >
-                  GitHub
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#"
-                  className="hover:underline underline-offset-4"
-                  prefetch={false}
-                >
-                  Facebook
-                </Link>
-              </li>
-            </ul>
+          <div>
+            <h3 className="font-semibold">Legal</h3>
+            <a href="#" className="block mt-2 hover:underline">
+              Privacy Policy
+            </a>
+            <a href="#" className="block mt-2 hover:underline">
+              Terms of Service
+            </a>
+            <a href="#" className="block mt-2 hover:underline">
+              Cookie Policy
+            </a>
           </div>
-        </div>
-        <div className="border-t border-muted mt-6 pt-6 text-center text-muted-foreground">
-          <p>&copy; 2023 Crypto Tracker. All rights reserved.</p>
+          <div>
+            <h3 className="font-semibold">Contact</h3>
+            <a href="#" className="block mt-2 hover:underline">
+              Sales
+            </a>
+            <a href="#" className="block mt-2 hover:underline">
+              Support
+            </a>
+            <a href="#" className="block mt-2 hover:underline">
+              Partnerships
+            </a>
+            <a href="#" className="block mt-2 hover:underline">
+              Media
+            </a>
+          </div>
         </div>
       </footer>
     </div>
   );
 };
 
-const CurrencyIcon = ({ className }) => {
-  return <span className={className}>💰</span>;
-};
 
 const Feature = ({ title, description }) => {
   return (
