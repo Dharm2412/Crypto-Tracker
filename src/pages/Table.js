@@ -10,6 +10,7 @@ export default function Table() {
   const [coins, setCoins] = useState([]);
   const [currency, setCurrency] = useState("usd");
   const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState(""); // State for search filter
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,6 +33,12 @@ export default function Table() {
     navigate(`/currency/${id}`);
   };
 
+  const filteredCoins = coins.filter(
+    (coin) =>
+      coin.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      coin.symbol.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   if (loading) {
     return <Loader />;
   }
@@ -47,6 +54,14 @@ export default function Table() {
             <p className="mt-4 text-lg text-[#F8FAFC] md:text-xl">
               Explore the latest cryptocurrency prices and market data.
             </p>
+            {/* Search input */}
+            <input
+              type="text"
+              placeholder="Search by name or symbol"
+              className="mt-6 px-4 py-2 border rounded-md w-full md:w-1/2"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
           </div>
         </div>
       </header>
@@ -69,37 +84,48 @@ export default function Table() {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {coins.map((coin) => (
-                    <tr
-                      key={coin.id}
-                      className="cursor-pointer hover:bg-gray-100"
-                      onClick={() => handleCoinClick(coin.id)}
-                    >
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center">
-                          <img
-                            className="h-10 w-10 rounded-full"
-                            src={coin.image}
-                            alt={coin.name}
-                          />
-                          <div className="ml-4">
-                            <div className="text-sm font-medium text-gray-900">
-                              {coin.name}
-                            </div>
-                            <div className="text-sm text-gray-500">
-                              {coin.symbol.toUpperCase()}
+                  {filteredCoins.length > 0 ? (
+                    filteredCoins.map((coin) => (
+                      <tr
+                        key={coin.id}
+                        className="cursor-pointer hover:bg-gray-100"
+                        onClick={() => handleCoinClick(coin.id)}
+                      >
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="flex items-center">
+                            <img
+                              className="h-10 w-10 rounded-full"
+                              src={coin.image}
+                              alt={coin.name}
+                            />
+                            <div className="ml-4">
+                              <div className="text-sm font-medium text-gray-900">
+                                {coin.name}
+                              </div>
+                              <div className="text-sm text-gray-500">
+                                {coin.symbol.toUpperCase()}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-gray-900">
-                        ${coin.current_price.toLocaleString()}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-gray-900">
-                        ${coin.market_cap.toLocaleString()}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-gray-900">
+                          ${coin.current_price.toLocaleString()}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-gray-900">
+                          ${coin.market_cap.toLocaleString()}
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td
+                        colSpan="3"
+                        className="px-6 py-4 text-center text-sm text-gray-500"
+                      >
+                        No matching cryptocurrencies found.
                       </td>
                     </tr>
-                  ))}
+                  )}
                 </tbody>
               </table>
             </div>
