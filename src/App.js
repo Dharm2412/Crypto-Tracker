@@ -5,6 +5,7 @@ import Table from "./pages/Table";
 import Navbar from "./Components/Navbar"; 
 import CurrencyDetail from "./pages/CurrencyDetail";
 import Contect from "./pages/Contect";
+import Favrate from "./pages/Favrate";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <div className="app-container">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/favrate" element={<Favrate />} />
           <Route path="/table" element={<Table />} />
           <Route path="/currency/:id" element={<CurrencyDetail />} />
           <Route path="/contect" element={<Contect />} />

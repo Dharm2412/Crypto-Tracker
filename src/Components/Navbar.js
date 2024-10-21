@@ -28,11 +28,11 @@ export default function Navbar() {
             Supported Coins
           </Link>
           <Link
-            to="#"
+            to="/favrate"
             className="text-sm font-medium hover:underline underline-offset-4"
             prefetch={false}
           >
-            Pricing
+            favrate
           </Link>
           <Link
             to="/contect"
